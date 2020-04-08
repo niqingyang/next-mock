@@ -1,6 +1,6 @@
 {
   "name": "next-mock",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "an nextjs api middleware for implementing mock api with reference to umi-mock",
   "main": "./lib/index.js",
   "files": [

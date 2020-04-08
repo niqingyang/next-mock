@@ -1,5 +1,5 @@
 import assert from 'assert';
-import pathToRegexp from 'path-to-regexp';
+import {pathToRegexp} from 'path-to-regexp';
 import bodyParser from 'body-parser';
 import multer from 'multer';
 
@@ -17,8 +17,8 @@ const BODY_PARSED_METHODS = ['post', 'put', 'patch', 'delete'];
 function createHandler(method, path, handler) {
     return function (req, res, next) {
         if (BODY_PARSED_METHODS.includes(method)) {
-            bodyParser.json({limit: '5mb', strict: false})(req, res, () => {
-                bodyParser.urlencoded({limit: '5mb', extended: true})(
+            bodyParser.json({strict: false})(req, res, () => {
+                bodyParser.urlencoded({extended: true})(
                     req,
                     res,
                     () => {
@@ -103,5 +103,6 @@ export function getMockData(mockDataConfig) {
         return normalizeConfig(mockDataConfig);
     } catch (e) {
         console.error(`Mock files parse failed`);
+        throw e;
     }
 }

@@ -27,8 +27,7 @@ export default function (mockDataConfig, next) {
                 next = (req, res) => {
                     res.status(404).send({
                         status: 404,
-                        error: 'Page Not Found',
-                        message: 'No message available',
+                        message: 'page not found',
                         path: req.url,
                     });
                 }
